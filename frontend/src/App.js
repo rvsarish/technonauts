@@ -1,12 +1,31 @@
 import React from 'react';
-import VideoUpload from './VideoUpload';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import Home from './Home';
+import VideoProcessor from './VideoProcessor';
 import './App.css';
+
 const App = () => {
   return (
-    <div>
-      <h1>Video Upload and Processing</h1>
-      <VideoUpload />
-    </div>
+    <Router>
+      <div className="app-container">
+        <header>
+          <div className="logo">LOGO</div>
+          <nav>
+            <Link to="/">Home</Link>
+            <Link to="/process">Process Video</Link>
+          </nav>
+        </header>
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/process" element={<VideoProcessor />} />
+          </Routes>
+        </main>
+        <footer>
+          <p>© TECNONAUTS - 2024</p>
+        </footer>
+      </div>
+    </Router>
   );
 };
 

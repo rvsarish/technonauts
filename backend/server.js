@@ -8,6 +8,7 @@ const fs = require('fs');
 
 const app = express();
 app.use(cors());
+app.use(express.json());
 
 // MongoDB connection
 mongoose.connect('mongodb+srv://sari:sari@demo.cbgcelo.mongodb.net/?retryWrites=true&w=majority&appName=demo')
@@ -39,7 +40,19 @@ const videoSchema = new mongoose.Schema({
 const Video = mongoose.model('Video', videoSchema);
 
 // Endpoint for video upload
-app.post('/api/upload', upload.single('video'), (req, res) => {
+app.post('/api/upload', upload.single('video'), async (req, res) => {
+  // Delete previous videos
+  const previousVideos = await Video.find();
+  previousVideos.forEach((video) => {
+    if (fs.existsSync(video.originalVideoUrl)) {
+      fs.unlinkSync(video.originalVideoUrl);
+    }
+    if (fs.existsSync(video.resultVideoUrl)) {
+      fs.unlinkSync(video.resultVideoUrl);
+    }
+  });
+  await Video.deleteMany();
+
   const originalVideoPath = path.resolve(__dirname, req.file.path);
   console.log('Original Video Path:', originalVideoPath);
 
@@ -85,6 +98,16 @@ app.post('/api/upload', upload.single('video'), (req, res) => {
       });
     });
   });
+});
+
+// Endpoint to fetch all videos
+app.get('/api/videos', async (req, res) => {
+  try {
+    const videos = await Video.find();
+    res.json(videos);
+  } catch (error) {
+    res.status(500).send('Error fetching videos');
+  }
 });
 
 // Serve processed videos
