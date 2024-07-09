@@ -3,14 +3,15 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Home from './Home';
 import VideoProcessor from './VideoProcessor';
 import './App.css';
+import LogoSvg from './LogoSvg';
 
 const App = () => {
   return (
     <Router>
       <div className="app-container">
         <header>
-          <div className="logo">LOGO</div>
-          <nav>
+        <div className="logo"><LogoSvg /></div>          
+        <nav>
             <Link to="/">Home</Link>
             <Link to="/process">Process Video</Link>
           </nav>

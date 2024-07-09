@@ -14,7 +14,7 @@ body {
 }
 
 header {
-  background-color: #4eabfc;
+  background-color: #4989EF;
   padding: 20px;
   display: flex;
   justify-content: space-between;
@@ -22,10 +22,10 @@ header {
   flex-wrap: wrap;
 }
 
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-  color: white;
+.logo img {
+  width: 150px;
+  height: auto;
+  margin-right: 10px;
 }
 
 nav {
@@ -41,7 +41,15 @@ nav a {
   padding: 10px;
   transition: background-color 0.3s;
 }
-
+nav  {
+  margin: 0 10px;
+  background-color: #4989EF;
+  border: none;
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  transition: background-color 0.3s;
+}
 nav a:hover {
   background-color: #0056b3;
   border-radius: 4px;
@@ -55,7 +63,7 @@ main {
 }
 
 footer {
-  background-color: #4eabfc;
+  background-color: #4989EF;
   padding: 10px;
   text-align: center;
   color: white;
@@ -63,24 +71,63 @@ footer {
 
 /* Home page styles */
 .home-container {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh; /* Ensures the container fits exactly within a single viewport */
+  width: 100%;
   padding: 20px;
-  background-color: white;
+  margin: 0;
+  overflow: hidden; /* Prevents any content from causing scrolling */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #4989EF, #7CB9E8); /* Blue gradient */
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
+.home-title {
+  font-size: 2.5rem; /* Reduced size to accommodate in a single view */
+  font-weight: 300;
+  margin: 10px 0; /* Reduced margin to save space */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.home-intro {
+  font-size: 1.2rem; /* Slightly smaller to fit better */
+  margin: 5px 0; /* Reduced margin */
+  max-width: 90%; /* Full width utilization with padding */
+  text-align: center;
+  line-height: 1.4; /* More compact line height */
+}
+
+.home-description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.home-point {
+  font-size: 1rem; /* Smaller font to fit content */
+  padding: 10px;
+  margin: 5px 0; /* Reduced spacing */
+  width: 80%; /* Adjust width */
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.home-container h2 {
-  font-size: 28px;
-  margin-bottom: 20px;
+.home-subtitle {
+  font-size: 1.8rem; /* Adjusted size */
+  margin: 10px 0; /* Reduced margin */
+  color: #aad1e6;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
 }
 
-.home-container p {
-  font-size: 18px;
-  max-width: 600px;
-  margin: 0 auto;
-  color: #555;
-}
 
 /* Video Processor styles */
 .processor-container {
@@ -101,6 +148,8 @@ footer {
   flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
+  min-width: 400px;
+  padding: 25px;
 }
 
 .drop-zone {
@@ -196,6 +245,137 @@ footer {
   }
 }
 
+@media (max-width: 720px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .logo img {
+    width: 120px;
+    margin: 0 auto 10px;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  nav a {
+    margin: 5px 0;
+    padding: 8px 12px;
+    width: 100%;
+    text-align: center;
+  }
+
+  footer {
+    padding: 20px;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .home-container {
+    padding: 10px;
+    margin: 0 10px;
+  }
+
+  .home-container h2 {
+    font-size: 24px;
+  }
+
+  .home-container p {
+    font-size: 16px;
+  }
+
+  .home-title {
+    font-size: 1.8em;
+  }
+
+  .home-point {
+    font-size: 1em;
+  }
+
+  .home-subtitle {
+    font-size: 1.3em;
+  }
+
+  .home-text {
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    background-color: #4989EF;
+  }
+
+  .logo img {
+    width: 120px; 
+    margin: 0 auto 10px;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+  }
+
+  nav a {
+    margin: 5px 0;
+    padding: 8px 12px;
+    width: 100%;
+    text-align: center;
+    background-color: #2c95f1; 
+    color: white;
+  }
+
+  nav a:hover {
+    background-color: #0056b3;
+  }
+
+  footer {
+    padding: 20px;
+    text-align: center;
+    background-color: #4989EF; 
+    color: white;
+    font-size: 14px;
+  }
+
+  .home-container {
+    padding: 10px;
+    margin: 0 10px;
+  }
+
+  .home-container h2 {
+    font-size: 22px;
+  }
+
+  .home-container p {
+    font-size: 14px;
+  }
+
+  .home-title {
+    font-size: 1.6em;
+  }
+
+  .home-point {
+    font-size: 0.9em;
+  }
+
+  .home-subtitle {
+    font-size: 1.2em;
+  }
+
+  .home-text {
+    font-size: 0.85em;
+  }
+}
+
 @media (max-width: 480px) {
   header {
     flex-direction: column;
@@ -218,5 +398,34 @@ footer {
   .file-upload-label, .upload-button {
     width: 100%;
     text-align: center;
+  }
+
+  .home-container {
+    padding: 10px;
+    margin: 0 5px;
+  }
+
+  .home-container h2 {
+    font-size: 20px;
+  }
+
+  .home-container p {
+    font-size: 12px;
+  }
+
+  .home-title {
+    font-size: 1.4em;
+  }
+
+  .home-point {
+    font-size: 0.8em;
+  }
+
+  .home-subtitle {
+    font-size: 1.1em;
+  }
+
+  .home-text {
+    font-size: 0.75em;
   }
 }
